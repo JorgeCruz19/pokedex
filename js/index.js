@@ -64,9 +64,11 @@ const fetchPokemons = async () => {
 	pokeContainer.style.display = 'none'
 	for (let i = 1; i <= pokemonsNumber; i++) {
 		await getPokemon(i)
-		if (i == pokemonsNumber) pokeContainer.style.display = 'grid'
+		if (i == 32) {
+			pokeContainer.style.display = 'grid'
+			loaderEl.style.display = 'none'
+			containerLoader.removeChild(loaderEl)
+		}
 	}
-	loaderEl.style.display = 'none'
-	containerLoader.removeChild(loaderEl)
 }
 fetchPokemons()
